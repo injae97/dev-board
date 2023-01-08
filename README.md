@@ -1,5 +1,4 @@
 ## 💡 Board
-Web development - Create Bulletin Board (CRUD)
 - JDK 18 / Tomcat v8.5 / Eclipse IDE
 
 
@@ -7,8 +6,7 @@ Web development - Create Bulletin Board (CRUD)
 https://www.oracle.com/java/technologies/javase/jdk18-archive-downloads.html
 
     - Windows x64 Installer 
-    
-    * JDK 8 버전으로 설치 시 재부팅 후 이클립스 실행하면 버전이 낮다고 실행 안됨 (18로 설치할 것)
+    - JDK 8 버전으로 설치 시 재부팅 후 이클립스 실행하면 버전이 낮다고 실행 안됨 (18로 설치할 것)
 
 * 환경변수 설정 
 윈도우 > 시스템 환경 변수 편집 > 고급(탭) > 환경 변수 
