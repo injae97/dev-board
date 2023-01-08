@@ -12,11 +12,11 @@ https://www.oracle.com/java/technologies/javase/jdk18-archive-downloads.html
 ## 💡 Env Setting
 윈도우 > 시스템 환경 변수 편집 > 고급(탭) > 환경 변수 
 
-    a. 시스템 변수 에서 새로만들기 
+    a. 시스템 변수 에서 새로 만들기 
         - 변수 이름: JAVA_HOME
-        - 변수 값 : C:\Program Files\Java\jdk1.8.0_351  (1번에서 설치한 JDK 경로)
+        - 변수 값 : C:\Program Files\Java\jdk1.8.0_351 (1번에서 설치한 JDK 경로)
 
-    b. path 추가  
+    b. path   
         - C:\Program Files\Java\jdk1.8.0_351\bin 추가
 
 ## 💡 Tomcat 8 
