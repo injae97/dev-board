@@ -36,10 +36,8 @@ https://www.eclipse.org/downloads/
     - Eclipse IDE for Enterprise Java and Web Developers 
 
 ## 💡 Eclipse Run
-    - Dynamic Web Project 
-    
-        - Project Name : BBS 
-        
+    - Dynamic Web Project
+        - Project Name : BBS
         - Target Runtime (tomcat 설정)
             - New Runtime > Apache > 아까 2번에서 설치한 tomcat v8.5 > Tomcat directory 설정 (C:\JSP\apache-tomcat-8.5.84)
 
