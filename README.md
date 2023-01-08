@@ -1,6 +1,5 @@
 ## 💡 Board (CRUD)
-- JDK 18 / Tomcat v8.5 / Eclipse IDE / Bootstrap 3.3 / MySQL
-
+- JSP + Tomcat 8.5 + Bootstrap 3.3 + MySQL + Eclipse IDE 
 
 ## 💡 JDK 18 
 https://www.oracle.com/java/technologies/javase/jdk18-archive-downloads.html
