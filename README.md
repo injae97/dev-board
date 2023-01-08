@@ -1,6 +1,6 @@
 ## 💡 Board
 Web development - Create Bulletin Board (CRUD)
-* JDK 18 / Tomcat v8.5 / Eclipse IDE
+- JDK 18 / Tomcat v8.5 / Eclipse IDE
 
 
 ## 💡 JDK 18 
