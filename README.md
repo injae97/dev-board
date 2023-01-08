@@ -1,5 +1,4 @@
-## 💡 Board
-Web Dev - Board CRUD
+## 💡 Board (CRUD)
 - JDK 18 / Tomcat v8.5 / Eclipse IDE
 
 
