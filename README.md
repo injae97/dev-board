@@ -44,17 +44,20 @@ https://www.eclipse.org/downloads/
 
 ## 💡 Bootstrap 3.3
 https://getbootstrap.com/docs/3.3/getting-started/#download
+
     - Download Bootstrap
     - 압축 해제 후 > 작업공간으로 css, font, js 파일 이동
 
 
 ## 💡 MySQL
 https://dev.mysql.com/downloads/installer/
+
     - Windows (x86, 32-bit), MSI Installer (431.7M)
     - 압축 해제 후 실행
 
 ## 💡 MySQL jdbc driver Download & Setting
 https://downloads.mysql.com/archives/c-j/
+
     - Download
         a. Operating System: Platform Independent
         b. Platform Independent (Architecture Independent), ZIP Archive (4.9M) 파일 다운 
