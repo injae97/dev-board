@@ -46,6 +46,5 @@ https://www.eclipse.org/downloads/
 ## 💡 JSP File Create & Run
 
     - BBS/src/main/webapp > index.jsp 
-    
     - Run > Apache > Tomcat v8.5 Server > Finish
 
