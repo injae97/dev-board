@@ -24,7 +24,6 @@ https://www.oracle.com/java/technologies/javase/jdk18-archive-downloads.html
 
 ## 💡 Tomcat 8 
 https://tomcat.apache.org/download-80.cgi
-
     - 64-bit Windows zip
 
 
@@ -32,7 +31,6 @@ https://tomcat.apache.org/download-80.cgi
 https://www.eclipse.org/downloads/
 
     - Eclipse IDE 2022‑12 Install
-    
     - Eclipse IDE for Enterprise Java and Web Developers 
 
 ## 💡 Eclipse Run
