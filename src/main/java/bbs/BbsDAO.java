@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 /* writeAction.jsp에서 글쓴 데이터들을 DB에 넣어주기 위한 용도 */
 public class BbsDAO {
@@ -77,4 +78,46 @@ public class BbsDAO {
 		}
 		return -1; // 데이터베이스 오류
 	}
+	
+	/* DB(게시판 데이터가 저장된)에서 화면에서 보여주기 위한 기능 */
+	/* 총 10개의 게시글을 가져옴 */
+    public ArrayList<Bbs> getList(int pageNumber) {
+		String SQL = "SELECT * FROM BBS WHERE bbsID < ? AND bbsAvailable = 1 ORDER BY bbsID DESC LIMIT 10";
+		ArrayList<Bbs> list = new ArrayList<Bbs>();
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(SQL);
+			pstmt.setInt(1, getNext() - (pageNumber - 1) * 10);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				Bbs bbs = new Bbs();
+				bbs.setBbsID(rs.getInt(1)); 
+				bbs.setBbsTitle(rs.getString(2)); 
+				bbs.setUserID(rs.getString(3)); 
+				bbs.setBbsDate(rs.getString(4)); 
+				bbs.setBbsContent(rs.getString(5)); 
+				bbs.setBbsAvailable(rs.getInt(6)); 
+				list.add(bbs);
+			}
+			
+		} catch (Exception e) {
+		    e.printStackTrace();	
+		}
+		return list;
+    }
+        
+    /* 게시글이 10개밖에 없다면 다음페이지가 없어야 함 (페이징 처리) */
+    public boolean nextPage(int pageNumber) {
+		String SQL = "SELECT * FROM BBS WHERE bbsID < ? AND bbsAvailable = 1";
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(SQL);
+			pstmt.setInt(1, getNext() - (pageNumber - 1) * 10);
+			rs = pstmt.executeQuery(); 
+			if (rs.next()) {
+				return true;
+			}		
+		} catch (Exception e) {
+		    e.printStackTrace();	
+		}
+		return false;
+    }
 }
