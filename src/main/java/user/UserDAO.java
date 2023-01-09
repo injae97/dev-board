@@ -1,6 +1,7 @@
 package user;
 
 /* Auto Library : Ctrl + Shift + O  */
+/* writeAction.jsp를 위한 컨트롤러 */
 import java.sql.Connection; 
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;

@@ -75,32 +75,29 @@
 	    </div>
     </nav>	
     
-    <!-- 해당 부분만 코드 수정 -->
+    <!-- bbs.jsp 복사 후 아래 코드 부터 추가 및 수정 하였음 -->
     <div class="container">
         <div class="row">
-          <form method="post" action="writeAction.jsp">
-             <table class="table table-striped" style="text-align: center; border: 1px solid #dddddd"> <!-- 테이블 짝수,홀수 번갈아가면서 저장 -->
-       			  <thead>
-         		    <tr>
-           		      <th colspan=2 style="background-color: #eeeeee; text-align: center;">게시판 글쓰기 양식</th>                   
-         		   </tr>
-       			  </thead>
-         
-       			  <!-- tbody : 더미데이터로 표의 결과를 볼 수 있음 -->
-       			  <!-- textarea : 장문으로 무언갈 쓰기 위한 타입 -->                
-     		     <tbody>
-        	    	 <tr>
-               			  <td><input type="text" class="form-control" placeholder="글 제목" name="bbsTitle" maxlength="50"></td>
-           			 </tr>
-           			 
-           			 <tr>
-              			  <td><textarea class="form-control" placeholder="글 내용" name="bbsContent" maxlength="2048" style="height : 350px"></textarea></td>
-          			 </tr>
-        		</tbody>
-     		</table>
-  		        <input type="submit" class="btn btn-primary pull-right" value="글쓰기">
-     		
-       	  </form>
+        <form method="post" action="writeAction.jsp">
+        <table class="table table-striped" style="text-align: center; border: 1px solid #dddddd"> <!-- 테이블 짝수,홀수 번갈아가면서 저장 -->
+                <thead>
+                    <tr>
+                        <th colspan="2" style="background-color: #eeeeee; text-align: center;">게시판 글쓰기 양식</th>                  
+                    </tr>
+                </thead>
+                
+                <!-- tbody : 더미데이터로 표의 결과를 볼 수 있음 -->
+                <tbody>
+                    <tr>
+                        <td><input type="text" class="form-control" placeholder="글 제목" name="bbsTitle" maxlength="50"></td>
+                    </tr>
+                    <tr>
+                        <td><textarea class="form-control" placeholder="글 내용" name="bbsContent" maxlength="2048" style="height:350px;"></textarea></td>                  
+                    </tr>
+                </tbody>                
+            </table>
+            <input type="submit" class="btn btn-primary pull-right" value="글쓰기">
+        </form>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>

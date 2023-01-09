@@ -9,7 +9,6 @@ import java.sql.ResultSet;
 public class BbsDAO {
 
 	/* JDBC를 통해 DB 연결 */	 
-
 	private Connection conn;
 	private ResultSet rs;
 	
@@ -27,7 +26,7 @@ public class BbsDAO {
 	}
 	
 	
-	
+	/* 게시판 글쓰기 위한 함수들 */
 	/* 게시글 작성 시 현재 시간을 가져와서 넣기 위한 기능 */
 	public String getDate() {
 		String SQL = "SELECT NOW()";
@@ -45,7 +44,7 @@ public class BbsDAO {
 	
 	/* 게시판 정렬 기능 */
 	public int getNext() {
-		String SQL = "SELECT bbsID FROM BBD ORDER BY bbsID DESC";
+		String SQL = "SELECT bbsID FROM BBS ORDER BY bbsID DESC";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
 			rs = pstmt.executeQuery(); // 쿼리 수행 후 결과를 넣어줌
@@ -62,7 +61,7 @@ public class BbsDAO {
 	
 	/* 게시판 작성 기능 */
 	public int write(String bbsTitle, String userID, String bbsContent) {
-    	String SQL = "INSERT INTO BBS VALUES (?, ?, ?, ?, ?, ?)";
+    	String SQL = "INSERT INTO BBS (bbsID,  bbsTitle,  userID,  bbsDate,  bbsContent,  bbsAvailable) VALUES(?,  ?,  ?,  ?,  ?,  ?)";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
 			pstmt.setInt(1,  getNext());
