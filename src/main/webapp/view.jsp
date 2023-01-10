@@ -136,7 +136,7 @@
          	<%
                }
             %>
-            <input type="submit" class="btn btn-primary pull-right" value="글쓰기">
+            <a href="write.jsp" class="btn btn-primary pull-right">글쓰기</a>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
