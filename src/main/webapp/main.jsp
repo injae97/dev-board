@@ -80,8 +80,8 @@
         <div class="jumbotron">
             <div class="container">
                 <h1>웹 사이트 소개</h1>
-                <p>이 웹사이트는 첫 번째로 만든 CRUD 게시판 입니다.</p>
-                <p><a class="btn btn-primary btn-pull" href="#" role="button">자세히 알아보기</a></p>
+                <p>이 웹사이트는 첫 번째로 만든 CRUD 게시판 입니다. <br> JSP + Tomcat 8.5 + Bootstrap 3.3 + MySQL 8.0 + Eclipse IDE</br></p>
+                <p><a class="btn btn-primary btn-pull" href="https://github.com/injae97/Board" role="button">Github 게시판 프로젝트로 이동</a></p>
             </div>
         </div>
     </div>
