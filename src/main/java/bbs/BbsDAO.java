@@ -143,4 +143,35 @@ public class BbsDAO {
 		}
 		return null; // 해당 게시글이 존재하지 않는다면 null
     }
+    
+    /* [UPDATE] 게시글 수정하는 기능 */
+    public int update(int bbsID, String bbsTitle, String bbsContent) {
+    	String SQL = "UPDATE BBS SET bbsTitle = ?, bbsContent = ? WHERE bbsID = ?";
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(SQL);
+			pstmt.setString(1, bbsTitle);
+			pstmt.setString(2, bbsContent);
+			pstmt.setInt(3, bbsID);
+			return pstmt.executeUpdate(); // 성공시 0 반환
+			
+		} catch (Exception e) {
+		    e.printStackTrace();	
+		}
+		return -1; // 데이터베이스 오류
+    }
+    
+    /* [DELETE] 게시글 삭제하는 기능 */
+    public int delete(int bbsID) {
+    	String SQL = "UPDATE BBS SET bbsAvailable = 0 WHERE bbsID = ?"; // bbsAvailable = 0을 줌으로써 글을 블라인드 처리하기 위해 DELETE가 아닌 UPDATE 쿼리 사용
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(SQL);
+			pstmt.setInt(1, bbsID);
+			return pstmt.executeUpdate(); // 성공시 0 반환
+			
+		} catch (Exception e) {
+		    e.printStackTrace();	
+		}
+		return -1; // 데이터베이스 오류
+    }
+
 }
