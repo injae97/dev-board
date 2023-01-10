@@ -7,6 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width", initial-scale="1">
 <link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/custom.css">
 <title>메인 페이지</title>
 </head>
 <body>
@@ -74,6 +75,43 @@
 		    %>
 	    </div>
     </nav>	
+    <!-- 점보트론을 통해 메인 페이지 소개 -->
+    <div class="container">
+        <div class="jumbotron">
+            <div class="container">
+                <h1>웹 사이트 소개</h1>
+                <p>이 웹사이트는 첫 번째로 만든 CRUD 게시판 입니다.</p>
+                <p><a class="btn btn-primary btn-pull" href="#" role="button">자세히 알아보기</a></p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 캐러셀 클래스를 사용하여 사진 추가 -->
+    <div class="container">
+        <div id="myCarousel" class="carousel" data-ride="carousel">
+            <!-- 이미지를 3개 넣어주기 위해 indicators로 공간 확보 -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+            </ol>
+            <!-- 실제 사진을 보여주기 위한 inner -->
+            <div class="carousel-inner">
+                <div class="item active">
+                    <img src="images/1.jpg">
+                </div>
+                <div class="item">
+                    <img src="images/2.jpg">
+                </div>                       
+            </div>
+            <!-- 사진을 넘기기 위한 버튼 생성 -->
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                <span class="glyphicon-chevron-left"></span>
+            </a>       
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                <span class="glyphicon-chevron-right"></span>
+            </a>                   
+        </div>
+    </div>   
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="js/bootstrap.js"></script>
 </body>
