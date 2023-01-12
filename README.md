@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ## 💡 Board (CRUD)
 - JSP + Tomcat 8.5 + Bootstrap 3.3 + MySQL + Eclipse IDE 
 
@@ -66,8 +65,4 @@ https://downloads.mysql.com/archives/c-j/
         d. wkspc\Board\src\main\webapp\WEB-INF\lib에 붙여 넣기
 
     - Setting
-        - 프로젝트 우클릭 > Properties > Java Build Path > Libraries > (Modulepath 와 Classpath 한번씩 클릭해야 Add JARs 활성화 됨) > Add JARs.. >     
-=======
-# dev-board
-dev-board-repo
->>>>>>> 767f2f1c3c8831cc00c9a124358986fa188e2e3a
+        - 프로젝트 우클릭 > Properties > Java Build Path > Libraries > (Modulepath 와 Classpath 한번씩 클릭해야 Add JARs 활성화 됨) > Add JARs.. >   
