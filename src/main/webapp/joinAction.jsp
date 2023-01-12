@@ -1,9 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<!-- Import Class -->
 <%@ page import="user.UserDAO" %>
+
+<!-- java Script Use -->
 <%@ page import="java.io.PrintWriter" %>
 <% request.setCharacterEncoding("UTF-8"); %>
+
+<!-- java Beans 활용 user > User.java -->
 <jsp:useBean id="user" class="user.User" scope="page" />
+
+<!-- join.jsp 에서 넘겨준 name 값들을 받아서 userID, userPassword, userName, userGender, userEmail 저장됨 -->
 <jsp:setProperty name="user" property="userID" />
 <jsp:setProperty name="user" property="userPassword" />
 <jsp:setProperty name="user" property="userName" />
@@ -41,9 +49,11 @@
 			script.println("history.back()");
 			script.println("</script>");	    	
 	    }
+	    
+	    /* 회원가입 입력을 다 했을 경우 */ 
 	    else {
 			UserDAO userDAO = new UserDAO();
-			int result = userDAO.join(user);
+			int result = userDAO.join(user); // userDAO 선언한 join 메서드로 userID, userPassword, userName, userGender, userEmail 값이 들어감
 			
 			/* 회원가입 실패 - 중복된 아이디인 경우 */ 
 			if (result == -1) {

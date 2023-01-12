@@ -1,11 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<!-- Import Class -->
 <%@ page import="user.UserDAO" %>
-<%@ page import="java.io.PrintWriter" %>
+
+<!-- java Script Use -->
+<%@ page import="java.io.PrintWriter" %> 
 <% request.setCharacterEncoding("UTF-8"); %>
+
+<!-- java Beans 활용 user > User.java -->
+<!-- scope:"page" 를 통해 현재 페이지 내에서만 java Beans 활용 user > User.java -->
 <jsp:useBean id="user" class="user.User" scope="page" />
+
+<!-- login.jsp 에서 넘겨준 name 값들을 받아서 userID, userPassword가 저장됨 -->
 <jsp:setProperty name="user" property="userID" />
 <jsp:setProperty name="user" property="userPassword" />
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,10 +25,10 @@
 </head>
 <body>
 	<%
-	    /* 이미 로그인이 되어 있다면 다시 로그인 할 수 없게끔 방지 */
+	    /* 세션을 통해 userID를 확인 */
         String userID = null;
 	    if (session.getAttribute("userID") != null) {
-	    	userID = (String) session.getAttribute("UserID");
+	    	userID = (String) session.getAttribute("UserID"); // userID에 세션 UserID 값을 넣어줌
 	    }
 	    
 	    if (userID != null) {
@@ -28,12 +39,13 @@
 			script.println("</script>");
 	    }
 	    
+	    // login.jsp 에서 입력한 ID, PWD값을 가져와서 로그인 
 		UserDAO userDAO = new UserDAO();
 		int result = userDAO.login(user.getUserID(), user.getUserPassword());
 		
 		/* 로그인 성공 - 페이지 이동*/ 
 		if (result == 1) {
-			session.setAttribute("userID", user.getUserID()); // 로그인 성공 시 세션에 아이디를 넣어줌
+			session.setAttribute("userID", user.getUserID()); // 해당 회원의 userID를 세션값에 넣어줌
 			
 			PrintWriter script = response.getWriter();
 			script.println("<script>");

@@ -1,9 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
+<!-- java Script Use -->
 <%@ page import="java.io.PrintWriter" %>    
+
+<!-- Import Class -->
 <%@ page import="bbs.BbsDAO" %>    
 <%@ page import="bbs.Bbs" %>    
-<%@ page import="java.util.ArrayList" %>    
+<%@ page import="java.util.ArrayList" %>   
+ 
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,6 +17,8 @@
 <link rel="stylesheet" href="css/bootstrap.css">
 <link rel="stylesheet" href="css/custom.css">
 <title>게시판 페이지</title>
+
+<!-- 게시글 제목 검은색, 밑줄 제거 -->
 <style type="text/css">
    a, a:hover {
        color : #000000;
@@ -29,7 +36,7 @@
         }
         
         /* 현재 게시판이 몇번째 페이지인지 알려주기 위한 용도 */
-        int pageNumber = 1;
+        int pageNumber = 1; // 기본 페이지 이기 때문에 1 
         if (request.getParameter("pageNumber") != null) {
         	pageNumber = Integer.parseInt(request.getParameter("pageNumber")); // 정수형으로 변환
         }
@@ -92,7 +99,8 @@
 	    </div>
     </nav>	
     
-    <!-- 여기서 부터 대략적인 코드 추가 -->
+    <!-- 여기서 부터 코드 추가 -->
+    <!-- 게시판 정보 보여주기 (번호, 제목, 작성자, 작성일) -->
     <div class="container">
         <div class="row">
             <table class="table table-striped" style="text-align: center; border: 1px solid #dddddd"> <!-- 테이블 짝수,홀수 번갈아가면서 저장 -->
@@ -106,7 +114,7 @@
                 </thead>
                 
                 <tbody>
-                    <!-- 디비에 담겨진 게시글 데이터들을 불러와서 보여주기 위해 작성 -->
+                    <!-- ★★★ 디비에 담겨진 게시글 데이터들을 for loop를 통해 화면에 뿌려줌 ★★★ -->
                     <%
                         BbsDAO bbsDAO = new BbsDAO();
                         ArrayList<Bbs> list = bbsDAO.getList(pageNumber);
@@ -114,8 +122,12 @@
                     %>
                     <tr>
                         <td><%= list.get(i).getBbsID() %></td>
+                        
+                        <!-- ★★★ 제목을 눌렀을 때 해당 게시글의 내용을 보여주기 위한 용도 ★★★ -->
                         <td><a href="view.jsp?bbsID=<%= list.get(i).getBbsID() %>"><%= list.get(i).getBbsTitle().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>")%></a></td>
                         <td><%= list.get(i).getUserID() %></td>
+                        
+                        <!-- ★★★ substring을 통해 시간 데이터 조작 ★★★ -->
                         <td><%= list.get(i).getBbsDate().substring(0, 11) + list.get(i).getBbsDate().substring(11, 13) + "시 " + list.get(i).getBbsDate().substring(14, 16) + "분 "%></td>
                     </tr>
                     <%	                        	
@@ -131,6 +143,7 @@
 			<a href="bbs.jsp?pageNumber=<%=pageNumber - 1%>" class="btn btn-success btn-arrow-left">이전</a>
 			<%
 				}
+			    // 다음 페이지가 나오는지 물어보기 위해 +1
 				if (bbsDAO.nextPage(pageNumber + 1)) {
 			%>
 			<a href="bbs.jsp?pageNumber=<%=pageNumber + 1%>" class="btn btn-success btn-arrow-left">다음</a>
@@ -141,6 +154,8 @@
 			<%
 				if (session.getAttribute("userID") != null) {
 			%>
+			
+			<!-- 글쓰기 버튼 클릭시 게시글 작성 Form(write.jsp)으로 넘겨줌 -->
 			<a href="write.jsp" class="btn btn-primary pull-right">글쓰기</a>
 			<%
 				} else {

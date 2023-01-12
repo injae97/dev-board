@@ -1,11 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
+<!-- java Script Use -->    
 <%@ page import="java.io.PrintWriter" %>    
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width", initial-scale="1">
+
+<!-- custom.css 추가 -->    
 <link rel="stylesheet" href="css/bootstrap.css">
 <link rel="stylesheet" href="css/custom.css">
 <title>메인 페이지</title>
@@ -37,7 +42,7 @@
 		        <li><a href="bbs.jsp">게시판</a><li>
 		    </ul>
 		    
-		    <!-- 로그인이 안 됐을 경우 -->
+		    <!-- 로그인이 안 됐을 경우에만 접속하기 표시 -->
 		    <%
 		        if(userID == null) {
         	%>

@@ -1,8 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="java.io.PrintWriter" %>       
+    
+ <!-- java Script Use -->   
+<%@ page import="java.io.PrintWriter" %>  
+
+<!-- Import Class -->     
 <%@ page import="bbs.Bbs" %>    
 <%@ page import="bbs.BbsDAO" %>    
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,6 +49,7 @@
 			script.println("</script>");
         }
         
+        /* 글 작성한 사람이 본인이 아니라면 */
         Bbs bbs = new BbsDAO().getBbs(bbsID);
         if (!userID.equals(bbs.getUserID())) {
 			PrintWriter script = response.getWriter();
@@ -87,6 +93,9 @@
     <!-- bbs.jsp 복사 후 아래 코드 부터 추가 및 수정 하였음 -->
     <div class="container">
         <div class="row">
+        
+        <!-- 회원가입 Form method: post (주소창에 나오는 쿼리값을 숨김)-->
+        <!-- updateAction.jsp 으로 bbsID 값을 보냄 -->
         <form method="post" action="updateAction.jsp?bbsID=<%= bbsID %>">
         <table class="table table-striped" style="text-align: center; border: 1px solid #dddddd"> <!-- 테이블 짝수,홀수 번갈아가면서 저장 -->
                 <thead>
@@ -95,7 +104,8 @@
                     </tr>
                 </thead>
                 
-                <!-- tbody : 더미데이터로 표의 결과를 볼 수 있음 -->
+                <!-- tbody : 표의 결과를 볼 수 있음 -->
+                <!-- ★★★ 게시글을 수정하기 때문에 해당 게시글의 글제목, 글내용 값을 가져옴 ★★★ -->               
                 <tbody>
                     <tr>
                         <td><input type="text" class="form-control" placeholder="글 제목" name="bbsTitle" maxlength="50" value="<%= bbs.getBbsTitle() %>"></td>

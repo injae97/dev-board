@@ -1,8 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
+<!-- java Script Use -->    
 <%@ page import="java.io.PrintWriter" %>    
+
+<!-- Import Class -->
 <%@ page import="bbs.Bbs" %>   
 <%@ page import="bbs.BbsDAO" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,7 +24,9 @@
         if (session.getAttribute("userID") != null) {
         	userID = (String) session.getAttribute("userID");
         }
-        /* view.jsp 소스코드 추가  */
+        
+        /* view.jsp 소스코드 추가 */
+        /* 매개변수로 넘어온 bbsID 값이 존재한다면 */
         int bbsID = 0;
         if (request.getParameter("bbsID") != null) {
         	bbsID = Integer.parseInt(request.getParameter("bbsID")); // view.jsp?bbsID=11
@@ -92,7 +99,7 @@
 	    </div>
     </nav>	
     
-    <!-- view.jsp 소스코드 추가  -->    
+    <!-- ★★★ view.jsp 소스코드 추가 ★★★ -->    
     <div class="container">
         <div class="row">
         <table class="table table-striped" style="text-align: center; border: 1px solid #dddddd"> <!-- 테이블 짝수,홀수 번갈아가면서 저장 -->
@@ -103,7 +110,8 @@
               </thead>
               
               <tbody>
-              <!-- XSS 공격 방지를 위한 문자 치환(replaceAll)  -->
+              <!-- XSS 공격 방지 및 공백, 특수문자를 보여주기 위해 문자 치환(replaceAll) -->
+              <!-- ★★★ bbs > Bbs.java = bbs.get~ 값을 가져옴 ★★★ -->  
                   <tr>
                       <td style="width: 20%;">글 제목</td>
                       <td colspan="2"><%= bbs.getBbsTitle().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>") %></td>

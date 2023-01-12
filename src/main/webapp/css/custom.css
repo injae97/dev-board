@@ -1,10 +1,12 @@
 @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 @import url(http://fonts.googleapis.com/earlyaccess/hanna.css);
 
+/* 전체 폰트 설정 */ 
 * {
 	font-family : 'Nanum Gothic';
 }
 
+/* h1 태그에서만 해당 폰트 설정 */ 
 h1 {
 	font-family : 'Hanna';
 }

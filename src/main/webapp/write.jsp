@@ -76,18 +76,24 @@
 	    </div>
     </nav>	
     
-    <!-- bbs.jsp 복사 후 아래 코드 부터 추가 및 수정 하였음 -->
+    <!-- bbs.jsp 복사 후 밑에서 부터 코드 추가 및 수정 -->
     <div class="container">
         <div class="row">
+        
+        <!-- 회원가입 Form method: post (주소창에 나오는 쿼리값을 숨김)-->
+        <!-- writeAction.jsp 으로 글제목(bbsTitle), 글내용(bbsContent) 값을 보냄 -->
         <form method="post" action="writeAction.jsp">
         <table class="table table-striped" style="text-align: center; border: 1px solid #dddddd"> <!-- 테이블 짝수,홀수 번갈아가면서 저장 -->
+        
+                <!-- 글 작성 Form 위에 Title -->
                 <thead>
                     <tr>
                         <th colspan="2" style="background-color: #eeeeee; text-align: center;">게시판 글쓰기 양식</th>                  
                     </tr>
                 </thead>
                 
-                <!-- tbody : 더미데이터로 표의 결과를 볼 수 있음 -->
+                <!-- tbody : 표의 결과를 볼 수 있음 -->
+                <!-- ★★★매우 중요★★★ name은 DB 컬럼명 -->                                         
                 <tbody>
                     <tr>
                         <td><input type="text" class="form-control" placeholder="글 제목" name="bbsTitle" maxlength="50"></td>
